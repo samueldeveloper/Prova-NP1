@@ -48,24 +48,46 @@ public class Questao2 extends HttpServlet {
 		Float alturaconvertido = Float.parseFloat(altura);
 		
 		Float imc = (pesoconvertido/alturaconvertido)/alturaconvertido;
-				
-		saida.println("Peso:" + peso);
-		saida.println("Altura:" + altura);
-		saida.println("IMC :" + imc);
-		if(imc < 18.5){
-			saida.println("Abaixo do peso");
-		}else if(imc >= 18.5 && imc <= 24.9){
-			saida.println("Peso Normal");
-		}else if(imc >= 25.0 && imc <= 29.9){
-			saida.println("Sobreposto");
-		}else if(imc >= 30.0 && imc <=34.9){
-			saida.println("Obesidade Grau I");
-		}else if(imc >= 35.0 && imc <=39.9){
-			saida.println("Obesidade Grau II");
-		}else{
-			saida.println("Obesidade Grau III");
-		}
 		
+		saida.println("<div class='container'>");
+		saida.println("<div class='divider'></div>");
+		saida.println("<div class='row'>");
+			saida.println("<div class='waves-effect col s12'>");
+				saida.println("<h4>Peso:</h4>" + 
+			    "<p>" + peso + "</p>");
+			saida.println("</div>");
+		saida.println("</div>");
+		
+		saida.println("<div class='divider'></div>");
+		saida.println("<div class='row'>");
+			saida.println("<div class='waves-effect col s12'>");
+				saida.println("<h4>Altura:</h4>" + 
+				"<p>" + altura + "</p>");
+			saida.println("</div>");
+		saida.println("</div>");
+		
+		saida.println("<div class='divider'></div>");
+		saida.println("<div class='row'>");
+			saida.println("<div class='waves-effect col s12'>");
+				saida.println("<h4>IMC :</h4>" + 
+				"<p>" + imc + "</p>");
+			saida.println("</div>");
+		saida.println("</div>");
+		
+		if(imc < 18.5){
+			saida.println("<p class='red center-align white-text'>Abaixo do peso</p>");
+		}else if(imc >= 18.5 && imc <= 24.9){
+			saida.println("<p class='green center-align white-text'>Peso Normal</p>");
+		}else if(imc >= 25.0 && imc <= 29.9){
+			saida.println("<p class='red center-align white-text'>Sobreposto</p>");
+		}else if(imc >= 30.0 && imc <=34.9){
+			saida.println("<p class='red center-align white-text'>Obesidade Grau I</p>");
+		}else if(imc >= 35.0 && imc <=39.9){
+			saida.println("<p class='red center-align white-text'>Obesidade Grau II</p>");
+		}else{
+			saida.println("<p class='red center-align white-text'>Obesidade Grau III</p>");
+		}
+		saida.println("</div>");
 		
 		saida.println("<script src='https://code.jquery.com/jquery-2.1.1.min.js'></script>");
 		saida.println("<script src='js/materialize.js'></script>");
