@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+<title>Questão2</title>
+<script type="text/javascript">
+function enviar(){
+	if(document.form.peso.value==""){
+		alert("Campo Peso Obrigatorio");
+		document.form.peso.focus();
+		return false;
+	}
+	if(document.form.altura.value==""){
+		alert("Campo Altura Obrigatorio");
+		document.form.altura.focus();
+		return false;
+	}
+	return true;	
+}
+</script>
+</head>
+<body>
+	<nav>
+	    <div class=" blue nav-wrapper">
+	      <a href="index.html" class="brand-logo">Prova NP1</a>
+	      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+	      <ul id="nav-mobile" class="right hide-on-med-and-down">
+	        <li><a href="questao1.html">Questao 1</a></li>
+			<li class="active"><a href="questao2.html">Questao 2</a></li>
+			<li><a href="questao3.html">Questao 3</a></li>
+	      </ul>
+	      <ul class="side-nav" id="mobile-demo">
+	      	<li><a href="questao1.html">Questao 1</a></li>
+			<li class="active"><a href="questao2.html">Questao 2</a></li>
+			<li><a href="questao3.html">Questao 3</a></li>
+	      </ul>
+	    </div>
+	  </nav>
+	  <div class="container">
+	  	<div class="col s12">
+			<h1>IMC</h1>
+		</div>
+	  	<form action="Questao2" name="form" onSubmit="return enviar();">
+			<label for="peso">Peso</label>
+			<input type="text" name="peso">
+			
+			<label for="altura">Altura</label>
+			<input type="text" name="altura">
+		
+			<button class="blue btn waves-effect waves-light" type="submit">Calcular</button>
+			
+		</form>
+	</div>
+	
+<!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+</body>
+</html>

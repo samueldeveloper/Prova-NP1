@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+<title>Questao 3</title>
+<script type="text/javascript">
+function validar(){
+	if(document.form.nome.value==""){
+		alert("Campo Nome Obrigatorio");
+		document.form.nome.focus();
+		return false;
+	}
+	if(document.form.telefone.value==""){
+		alert("Campo Telefone Obrigatorio");
+		document.form.telefone.focus();
+		return false;
+	}
+	if(document.form.email.value==""){
+		alert("Campo Email Obrigatorio");
+		document.form.email.focus();
+		return false;
+	}	
+	return true;	
+}
+
+function validaEmail(email) {
+	var usuario = email.value.substring(0,email.value.indexOf("@"));
+	var dominio = email.value.substring(email.value.indexOf("@") + 1, email.value.lenght);
+	
+	if (
+		(usuario.length >= 1) && 
+		(dominio.length >= 3) && 
+		(usuario.search("@")== -1) && 
+		(dominio.search("@")== -1) &&
+		(usuario.search(" ")== -1) && 
+		(dominio.search(" ")== -1) &&
+		(dominio.search(".")!= -1) && 
+		(dominio.indexOf(".") >= 1)&& 
+		(dominio.lastIndexOf(".") < dominio.length - 1)) { 
+		document.getElementById("mensagem").innerHTML="<font color='green'>E-mail valido</font>";
+			
+		} else{ 
+			document.getElementById("mensagem").innerHTML="<font color='red'>E-mail invalido </font>"; 
+		}
+}
+</script>
+</head>
+<body>
+	<ul id="dropdown1" class="dropdown-content">
+	  <li><a href="questao3.html">Cadastrar</a></li>
+	  <li><a href="Listarusuario.jsp">Listar</a></li>
+	  <li><a href="">Excluir</a></li>
+	  <li class="divider"></li>
+	</ul>
+	<nav>
+	    <div class=" blue nav-wrapper">
+	      <a href="index.html" class="brand-logo">Prova NP1</a>
+	      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+	      <ul id="nav-mobile" class="right hide-on-med-and-down">
+	        <li><a href="questao1.html">Questao 1</a></li>
+			<li><a href="questao2.html">Questao 2</a></li>
+			<li class="active"><a class="dropdown-button" href="questao3.html" data-activates="dropdown1">Questao 3<i class="material-icons right">arrow_drop_down</i></a></li>
+			</ul>
+	      <ul class="side-nav" id="mobile-demo">
+	      	<li><a href="questao1.html">Questao 1</a></li>
+			<li><a href="questao2.html">Questao 2</a></li>
+			<li class="active"><a href="questao3.html">Questao 3</a></li>
+	      </ul>
+	    </div>
+	  </nav>
+	
+	<fieldset>
+		<legend>Cadastro de Contatos</legend>
+		<form action="Questao3" name="form" onSubmit="return validar();" method="POST">
+			
+			<label for="nome">Nome</label>
+			<input type="text" name="nome">
+			
+			<label for="telefone">Telefone</label>
+			<input type="text" name="telefone">
+			
+			<label for="tipo">Tipo</label>
+			<select class="browser-default" name="tipo">
+				<option selected="selected">Selecione uma opção</option>
+				<option value="fixo">Fixo</option>
+				<option value="celular">Celular</option>
+			</select>
+			
+			<label for="operadora">Operadora</label>
+			<select class="browser-default" name="operadora">
+				<option selected="selected">Selecione uma opção</option>
+				<option value="tim">Tim</option>
+				<option value="vivo">Vivo</option>
+				<option value="claro">Claro</option>
+				<option value="oi">Oi</option>
+			</select>
+			
+			<label for="email">Email</label>
+			<input type="text" name="email" onblur="validaEmail(form.email)">
+			
+			<input type="submit" value="Enviar">
+	</form>
+	</fieldset>
+	<div id="mensagem"></div>
+<!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+</body>
+</html>
